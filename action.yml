@@ -1,0 +1,10 @@
+name: 'My Js Action'
+description: 'My Js Action'
+inputs:
+  pattern:  # id of input
+    description: 'RegExp pattern'
+    required: true
+    default: '^[feat|fix]: '
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
