@@ -9793,11 +9793,14 @@ const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
 try {
-  const pattern = core.getInput('pattern');
-  const regexp = new RegExp(pattern);
+  const pattern = core.getInput('pattern', { required: true, trimWhitespace: false});
+  const flags = core.getInput('flags');
+  const regexp = new RegExp(pattern, flags);
   console.log('regexp:', regexp);
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log('payload:', payload);
+  const payload = JSON.stringify(github.context.payload, undefined, 2);
+  for (const commit of payload.commits) {
+    console.log('commit message:', commit.message);
+  }
 } catch (error) {
   core.setFailed(error.message);
 }
