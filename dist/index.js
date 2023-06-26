@@ -9793,24 +9793,25 @@ const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
 try {
+  core.debug(`github.context: ${JSON.stringify(github.context, null, 2)}`);
   const pattern = core.getInput('pattern', { required: true, trimWhitespace: false});
   const flags = core.getInput('flags');
   const regexp = new RegExp(pattern, flags);
-  core.info(`regexp: ${String(regexp)}`);
+  core.info(`input regexp: ${String(regexp)}`);
+  core.info(`event name: ${github.context.eventName}`);
+  core.info(`activity type: ${github.context.payload.action}`);
   if (github.context.eventName === 'push') {
     for (const commit of github.context.payload.commits) {
-      core.debug(`commit message: "${commit.message}"`);
+      core.info(`commit message: "${commit.message}"`);
       if (!regexp.test(commit.message)) {
         throw new Error(`Incorrect format commit message ("${commit.message}")`);
       }
     }
-  } else if (github.context.eventName === 'pull_request') {
-    core.debug(`pull request title: "${github.context.payload.pull_request.title}"`);
+  } else if (github.context.eventName === 'pull_request' || github.context.eventName === 'pull_request_target') {
+    core.info(`pull request title: "${github.context.payload.pull_request.title}"`);
     if (!regexp.test(github.context.payload.pull_request.title)) {
       throw new Error(`Incorrect format pull request title ("${github.context.payload.pull_request.title}")`);
     }
-  } else {
-    core.info(`github.context: ${JSON.stringify(github.context, null, 2)}`);
   }
 } catch (error) {
   core.setFailed(error.message);
