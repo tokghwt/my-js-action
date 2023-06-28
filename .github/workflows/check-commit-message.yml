@@ -1,0 +1,15 @@
+on:
+  pull_request:
+    types: [opened, edited]
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check action step
+        id: check
+        uses: tokghwt/my-js-action@v0.8.0
+        with:
+          pattern: '^(?:feat|fix|release|chore)(?:\([^)]+\))?: [A-Z]'
