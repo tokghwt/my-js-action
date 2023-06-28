@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Check action step
         id: check
-        uses: tokghwt/my-js-action@v0.9.0
+        uses: tokghwt/my-js-action@v0.11.0
         with:
           pattern: '^(?:feat|fix|release|chore)(?:\([^)]+\))?: [A-Z]'
