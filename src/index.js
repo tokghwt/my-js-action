@@ -22,6 +22,8 @@ try {
         throw new Error(`Incorrect format commit message (${commit.message})`);
       }
     }
+  } else {
+    throw new Error(`Unsupported event (${github.context.eventName})`);
   }
 } catch (error) {
   core.setFailed(error.message);
