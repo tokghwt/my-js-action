@@ -9808,7 +9808,7 @@ try {
   } else if (github.context.eventName === 'push') {
     for (const commit of github.context.payload.commits) {
       core.info(`"git ref": "${github.context.payload.ref}"`);
-      core.info(`"commit message": "${commit.message}"`);
+      core.info(`"commit message": "${commit.message.slice(0, commit.message.indexOf('\n'))}"`);
       if (!regexp.test(commit.message)) {
         throw new Error(`Incorrect format commit message (${commit.message})`);
       }
