@@ -9799,10 +9799,10 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
-const { version } = __nccwpck_require__(4147);
+const package = __nccwpck_require__(4147);
 
 try {
-  core.info(`"version": ${version}`);
+  core.info(`"version": ${package.version}`);
   core.debug(`"github.context": ${JSON.stringify(github.context, null, 2)}`);
   const pattern = core.getInput('pattern', { required: true, trimWhitespace: false});
   const flags = core.getInput('flags');

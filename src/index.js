@@ -1,9 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { version } = require('../package.json');
+const package = require('../package.json');
 
 try {
-  core.info(`"version": ${version}`);
+  core.info(`"version": ${package.version}`);
   core.debug(`"github.context": ${JSON.stringify(github.context, null, 2)}`);
   const pattern = core.getInput('pattern', { required: true, trimWhitespace: false});
   const flags = core.getInput('flags');
