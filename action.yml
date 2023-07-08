@@ -4,7 +4,7 @@ inputs:
   pattern:  # id of input
     description: 'RegExp pattern'
     required: true
-    default: '^[feat|fix]: [A-Z]'
+    default: '^(?:feat|fix)(?:\([^)]+\))?: '
   flags:  # id of input
     description: 'RegExp flags'
 runs:
