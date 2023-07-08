@@ -11,4 +11,4 @@ jobs:
         id: check
         uses: tokghwt/my-js-action@v0
         with:
-          pattern: '^(?:feat|fix|release|chore|revert)(?:\([^)]+\))?: [A-Z]'
+          pattern: '^(?:feat!?|fix!?|refactor|release|docs|test|chore|revert)(?:\([^)]+\))?: '
