@@ -1,8 +1,10 @@
+const { readFileSync } = require('node:fs');
 const core = require('@actions/core');
 const github = require('@actions/github');
-const package = require('../package.json');
 
 try {
+  const packageData = readFileSync('package.json', 'utf8');
+  const package = JSON.parse(packageData);
   core.info(`"version": ${package.version}`);
   core.debug(`"github.context": ${JSON.stringify(github.context, null, 2)}`);
   const pattern = core.getInput('pattern', { required: true, trimWhitespace: false});
