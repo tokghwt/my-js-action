@@ -3,8 +3,6 @@ on:
     types: [opened, edited]
   push:
     branches: [main]
-  push:
-    paths: [.github/workflows/check-commit-message.yml]
 jobs:
   check:
     runs-on: ubuntu-latest
