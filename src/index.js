@@ -1,19 +1,13 @@
-const { readFileSync, readdirSync } = require('node:fs');
 const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  const dirents = readdirSync('.');
-  core.info(`"dirents": ${JSON.stringify(dirents)}`);
-  core.info(`"cwd": ${process.cwd()}`);
-  //const packageData = readFileSync('package.json', 'utf8');
-  //const package = JSON.parse(packageData);
-  //core.info(`"version": ${package.version}`);
   core.debug(`"github.context": ${JSON.stringify(github.context, null, 2)}`);
   const pattern = core.getInput('pattern', { required: true, trimWhitespace: false});
   const flags = core.getInput('flags');
   const regexp = new RegExp(pattern, flags);
   core.info(`"regexp for check": ${String(regexp)}`);
+  core.info(`"commit SHA": "${github.context.sha}"`);
   core.info(`"event name": "${github.context.eventName}"`);
   if (github.context.eventName === 'pull_request') {
     core.info(`"activity type": "${github.context.payload.action}"`);
