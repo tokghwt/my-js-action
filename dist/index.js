@@ -9752,7 +9752,7 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"my-js-action","version":"0.19.0","description":"","main":"dist/index.js","scripts":{"lint":"eslint --config eslint/.eslintrc.js --ext .js src/","build":"npm install && ncc build src/index.js -o dist --license licenses.txt","test":"jest --config=jest/jest.config.js"},"keywords":[],"author":"tokghwt <tokghwt@gmail.com>","license":"MIT","dependencies":{"@actions/core":"^1.10.0","@actions/github":"^5.1.1"},"devDependencies":{"@types/semver":"^7.5.0","@vercel/ncc":"^0.36.1","eslint":"^8.44.0","jest":"^29.6.1","semver":"^7.5.4"}}');
+module.exports = JSON.parse('{"name":"my-js-action","version":"0.19.0","description":"","main":"dist/index.js","scripts":{"lint":"eslint --config eslint/.eslintrc.js --ext .js src/","build":"npm install && ncc build src/index.js -o dist --license licenses.txt","test":"jest --config=jest/jest.config.js"},"keywords":[],"author":"tokghwt <tokghwt@gmail.com>","license":"MIT","dependencies":{"@actions/core":"^1.10.0","@actions/github":"^5.1.1"},"devDependencies":{"@types/semver":"^7.5.0","@vercel/ncc":"^0.36.1","eslint":"^8.45.0","jest":"^29.6.1","semver":"^7.5.4"}}');
 
 /***/ })
 
