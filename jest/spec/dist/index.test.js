@@ -34,10 +34,10 @@ describe('dist/index.js', () => {
      */
     ['^(feat|fix): ', 'i', ['feat: Add ...', 'Fix: Change ...']],
     [undefined, 'i', ['feat: Add ...', 'Fix: Change ...']],
-    ['^(feat|fix): ', 'i', ['feat: Add ...', 'Fix:Change ...'], 'Incorrect format commit message (Fix:Change ...)'],
-    ['^(feat|fix): ', undefined, ['feat: Add ...', 'Fix: Change ...'], 'Incorrect format commit message (Fix: Change ...)'],
+    ['^(feat|fix): ', 'i', ['feat: Add ...', 'Fix:Change ...'], 'Incorrect format commit message ("Fix:Change ...")'],
+    ['^(feat|fix): ', undefined, ['feat: Add ...', 'Fix: Change ...'], 'Incorrect format commit message ("Fix: Change ...")'],
     ['^(feat|fix): ', undefined, ['feat: Add ...\n\ndescription.']],
-    ['^(feat|fix): ', undefined, ['Add ...\n\ndescription.'], 'Incorrect format commit message (Add ...%0A%0Adescription.)'],
+    ['^(feat|fix): ', undefined, ['Add ...\n\ndescription.'], 'Incorrect format commit message ("Add ...")'],
   ];
   for (let i = 0; i < testList.length; i++) {
     const testNum = i + 1;
