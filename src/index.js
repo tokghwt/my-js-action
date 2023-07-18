@@ -22,8 +22,8 @@ try {
       const lfIndex = commit.message.indexOf('\n');
       const message = (lfIndex >= 0) ? commit.message.slice(0, lfIndex) : commit.message;
       core.info(`"commit message": "${message}"`);
-      if (!regexp.test(commit.message)) {
-        throw new Error(`Incorrect format commit message (${commit.message})`);
+      if (!regexp.test(message)) {
+        throw new Error(`Incorrect format commit message ("${message}")`);
       }
     }
   } else {
