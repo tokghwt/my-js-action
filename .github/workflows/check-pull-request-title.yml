@@ -4,7 +4,7 @@ on:
 jobs:
   pull_request_title_check:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'someone' }}
+    if: ${{ github.actor == 'tokghwt' }}
     steps:
       - uses: tokghwt/my-js-action@v0
         with:
