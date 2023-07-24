@@ -28,6 +28,7 @@ afterEach(() => {
 describe('dist/index.js', () => {
   const pkg = require('../../../package.json');
   process.env.GITHUB_EVENT_PATH = './jest/temp/payload.json';
+  process.env.GITHUB_ACTOR = 'tokghwt';
   const testList = [
     /*
      * ["inputs.pattern", "inputs.flags", [commit message list], "error message"]
@@ -66,6 +67,7 @@ describe('dist/index.js', () => {
       expect(lines[lineNum++]).toBe(`"version": "${pkg.version}"`);
       expect(lines[lineNum++]).toMatch(/^::debug::"github.context": /);
       expect(lines[lineNum++]).toBe(`"regexp for check": ${String(new RegExp(process.env.INPUT_PATTERN, process.env.INPUT_FLAGS))}`);
+      expect(lines[lineNum++]).toBe(`"actor": "${process.env.GITHUB_ACTOR}"`);
       expect(lines[lineNum++]).toBe(`"event name": "${process.env.GITHUB_EVENT_NAME}"`);
       expect(lines[lineNum++]).toBe(`"git ref": "${payload.ref}"`);
       for (const commit of payload.commits) {

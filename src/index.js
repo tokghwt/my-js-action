@@ -9,6 +9,7 @@ try {
   const flags = core.getInput('flags');
   const regexp = new RegExp(pattern, flags);
   core.info(`"regexp for check": ${String(regexp)}`);
+  core.info(`"actor": "${github.context.actor}"`);
   core.info(`"event name": "${github.context.eventName}"`);
   if (github.context.eventName === 'pull_request') {
     core.info(`"activity type": "${github.context.payload.action}"`);
