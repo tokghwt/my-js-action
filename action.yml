@@ -3,7 +3,7 @@ description: 'My Js Action'
 inputs:
   pattern:  # id of input
     description: 'RegExp pattern'
-    default: '^(?:feat|fix)(?:\([^)]+\))?: '
+    required: true
   flags:  # id of input
     description: 'RegExp flags'
 runs:
